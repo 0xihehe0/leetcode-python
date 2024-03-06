@@ -2,7 +2,7 @@
 Author: yaojinxi 864554492@qq.com
 Date: 2024-03-06 19:19:30
 LastEditors: yaojinxi 864554492@qq.com
-LastEditTime: 2024-03-06 21:35:01
+LastEditTime: 2024-03-06 21:36:35
 FilePath: \leetcode\075\sortColors.py
 Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 '''
@@ -27,8 +27,7 @@ class Solution(object):
                 if p0 < p1:  # 当p0和p1不相等时，需要调整p1位置的元素
                     nums[p1], nums[i] = nums[i], nums[p1]
                 p0 += 1
-                if p0 > p1:
-                    p1 += 1
+                p1 += 1
             elif nums[i] == 1:
                 nums[p1], nums[i] = nums[i], nums[p1]
                 p1 += 1
