@@ -18,7 +18,22 @@ n2.next = n3
 
 class Solution:
     def swapPairs(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        return
+        dump = ListNode(0,head)
+        prev = dump
+        cur = head
+        
+        while cur and cur.next:
+            npn = cur.next.next
+            second = cur.next
+            
+            second.next = cur
+            cur.next= npn
+            prev.next = second
+            
+            prev = cur
+            cur = npn
+            
+        return dump.next
     
 so = Solution()
 so.swapPairs(list1)
