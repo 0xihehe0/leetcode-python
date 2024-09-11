@@ -2,24 +2,23 @@ from typing import List
 
 class Solution:
     def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+        leng = len(nums)
         left = 0
-        right = 1
-        while right < len(nums):
-            print(left,right)
-            if nums[left] or nums[right] == target:
-                return 1
+        right = 0
+        res = leng + 1
+        total = 0
+        while right < leng:
+            total += nums[right]
             
-            if nums[left] + nums[right] == target:
-                print(left,right)
-            
-            if nums[left] + nums[right] < target:
-                right += 1
-                
-            if nums[left] + nums[right] > target:
+            while total >= target:
+                res = min(res,right - left + 1)
+                total -= nums[left]
                 left += 1
-                right += 1
-                
-        return
+            right += 1
+        if res == leng + 1: 
+            return 0
+        
+        return res
         
 target = 7 
 nums = [2,3,1,2,4,3]
