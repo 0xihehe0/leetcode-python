@@ -14,11 +14,15 @@ Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查�
 
 class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
+        if not needle:  # 处理 needle 为空的情况
+            return 0
+        
         length = len(needle)
-        fristIndex = needle[0:1]
-        for i in range(len(haystack)):
-            if haystack[i] == fristIndex and needle == haystack[i:length + i]:
+        
+        for i in range(len(haystack) - length + 1):
+            if haystack[i:i + length] == needle:
                 return i
+        
         return -1
         
         
